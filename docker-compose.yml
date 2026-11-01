@@ -1,0 +1,55 @@
+services:
+  jobmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    command: jobmanager
+    ports:
+      - "8081:8081"
+    environment:
+      FLINK_PROPERTIES: "jobmanager.rpc.address: jobmanager\nrest.address: 0.0.0.0\n"
+    volumes:
+      - ./:/opt/project
+  taskmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    command: taskmanager
+    depends_on: [jobmanager]
+    environment:
+      FLINK_PROPERTIES: "jobmanager.rpc.address: jobmanager\ntaskmanager.numberOfTaskSlots: 2\n"
+    volumes:
+      - ./:/opt/project
+  replayer:
+    image: python:3.11-slim
+    command: ["python", "-u", "-m", "src.replay", "--file", "data/events.csv", "--rate", "50", "--loops", "2"]
+    working_dir: /opt/project
+    volumes:
+      - ./:/opt/project
+  jobsubmit:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    depends_on: [jobmanager, taskmanager, replayer]
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["sleep 15; /opt/flink/bin/flink run -m jobmanager:8081 -py /opt/project/src/flink_job.py"]
+    environment:
+      PYTHONPATH: /opt/project
+      WINDOW_SECONDS: "20"
+      SLIDE_SECONDS: "5"
+      MIN_GROUP: "10"
+      MIN_POSITIVE: "5"
+      ALERT_THRESHOLD: "0.12"
+      REFERENCE_DP: "0.0"
+      REFERENCE_EO: "0.0"
+      RESULTS_PATH: /opt/project/results/live.jsonl
+    volumes:
+      - ./:/opt/project
+  dashboard:
+    image: python:3.11-slim
+    working_dir: /opt/project
+    command: ["sh", "-c", "pip install --no-cache-dir -r requirements-dashboard.txt && streamlit run src/dashboard.py --server.address 0.0.0.0 --server.port 8501"]
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./:/opt/project

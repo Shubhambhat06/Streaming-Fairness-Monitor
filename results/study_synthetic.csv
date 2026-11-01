@@ -1,0 +1,5 @@
+window_events,slide_events,threshold,baseline_windows,drift_windows,false_alarms,false_alarm_rate,detection_delay_events,detection_rate,baseline_dp_reference,baseline_eo_reference
+200,100,0.13,39,40,7,0.1795,100,1.0,-0.0125,-0.0193
+500,100,0.13,36,40,0,0.0,100,1.0,-0.0154,-0.0277
+1000,100,0.13,31,40,0,0.0,200,0.975,-0.015,-0.0298
+2000,100,0.13,21,40,0,0.0,400,0.925,-0.0183,-0.0356

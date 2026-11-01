@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.pyc
+results/*.jsonl
+results/*.csv
+results/*.png
+results/*.json
+!results/.gitkeep
+!results/study_synthetic.csv
+!results/study_synthetic.json
+!results/study_synthetic.png
+data/*.csv
+*.joblib
+.DS_Store

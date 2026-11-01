@@ -1,0 +1,60 @@
+{
+  "source": "synthetic",
+  "seed": 42,
+  "rows": 8000,
+  "drift_start": 4000,
+  "results": [
+    {
+      "window_events": 200,
+      "slide_events": 100,
+      "threshold": 0.13,
+      "baseline_windows": 39,
+      "drift_windows": 40,
+      "false_alarms": 7,
+      "false_alarm_rate": 0.1795,
+      "detection_delay_events": 100,
+      "detection_rate": 1.0,
+      "baseline_dp_reference": -0.0125,
+      "baseline_eo_reference": -0.0193
+    },
+    {
+      "window_events": 500,
+      "slide_events": 100,
+      "threshold": 0.13,
+      "baseline_windows": 36,
+      "drift_windows": 40,
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "detection_delay_events": 100,
+      "detection_rate": 1.0,
+      "baseline_dp_reference": -0.0154,
+      "baseline_eo_reference": -0.0277
+    },
+    {
+      "window_events": 1000,
+      "slide_events": 100,
+      "threshold": 0.13,
+      "baseline_windows": 31,
+      "drift_windows": 40,
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "detection_delay_events": 200,
+      "detection_rate": 0.975,
+      "baseline_dp_reference": -0.015,
+      "baseline_eo_reference": -0.0298
+    },
+    {
+      "window_events": 2000,
+      "slide_events": 100,
+      "threshold": 0.13,
+      "baseline_windows": 21,
+      "drift_windows": 40,
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "detection_delay_events": 400,
+      "detection_rate": 0.925,
+      "baseline_dp_reference": -0.0183,
+      "baseline_eo_reference": -0.0356
+    }
+  ]
+}
