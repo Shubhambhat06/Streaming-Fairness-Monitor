@@ -56,7 +56,7 @@ Submission format: **Option A (GitHub repository, packaged as a zip).**
 | 2 | **Results notebook** | [`notebooks/results.ipynb`](notebooks/results.ipynb) | Reproducible analyses and figures |
 | 3 | **Technical report** (3 to 5 pages) | [`report/technical_report.pdf`](report/technical_report.pdf) | 4-page report |
 | 4 | **Model / data card** | [`docs/DATA_MODEL_CARD.md`](docs/DATA_MODEL_CARD.md) | Source, limitations, risks, model card |
-| 5 | **3-minute demo video** | [`streaming_fairness_monitor_silent_demo.mp4`](streaming_fairness_monitor_silent_demo.mp4) | Evaluated in class; need not be submitted. See [`demo/VIDEO_NOTES.md`](demo/VIDEO_NOTES.md) |
+| 5 | **3-minute demo video** | [`streaming_fairness_monitor_silent_demo.mp4`](demo/streaming_fairness_monitor_silent_demo.mp4) | Evaluated in class; need not be submitted. See [`demo/VIDEO_NOTES.md`](demo/VIDEO_NOTES.md) |
 
 Supporting documents:
 
